@@ -44,7 +44,23 @@ function Menu() {
         document.querySelector('.menu-container').style.right = '-1000px';
         document.querySelector('.closearea').style.left = '-1800px';
         document.querySelector('.menu-mobile').style.right = '-1000px'
-        handlePersonalInfoClick()
+        CLoseEdit()
+    }
+    function CLoseEdit() {
+        const details = document.querySelector(".details");
+        const personalInfo = document.querySelector(".personalinfo");
+        const editPencil = document.querySelector(".editpencil");
+
+        if (!usermenuname) {
+            document.querySelector(".loginalert").style.display = "none"
+            editPencil.style.display = "none";
+            personalInfo.style.borderRadius = "5px 5px 5px 5px";
+            return
+        };
+        details.style.transform = "scaleY(0)";
+        personalInfo.style.background = "";
+        personalInfo.style.borderRadius = "5px 5px 5px 5px";
+        editPencil.style.display = "none";
     }
     function triggerloginbox() {
         document.querySelector('.logincontainer').style.display = 'flex'
@@ -66,7 +82,6 @@ function Menu() {
         const editPencil = document.querySelector(".editpencil");
 
         if (!usermenuname) {
-            console.log(getComputedStyle(document.querySelector(".loginalert")).display === "none");
 
             if (getComputedStyle(document.querySelector(".loginalert")).display === "none") {
                 document.querySelector(".loginalert").style.display = "block"
@@ -94,7 +109,7 @@ function Menu() {
         handleCancelEdit()
     }
     function logout() {
-        handlePersonalInfoClick()
+        CLoseEdit()
         setUsername(null)
         setUserFullName(null)
         setUserPhone(null)
@@ -106,7 +121,6 @@ function Menu() {
         seteditName(null)
         seteditMail(null)
         seteditPhone(null)
-        handlePersonalInfoClick()
     }
     function handleEditPencilCick() {
         const inputs = document.querySelectorAll(".personalinforinputs")
