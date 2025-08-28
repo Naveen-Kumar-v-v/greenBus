@@ -143,6 +143,7 @@ function Menu() {
         seteditName(usermenuFname)
         seteditMail(usermenuname)
         seteditPhone(usermenuPhone)
+        setErrorOutline()
     }
     function setErrorOutline() {
         const fields = [
@@ -153,7 +154,7 @@ function Menu() {
 
         fields.forEach(({ invalid, index }) => {
             const input = document.querySelector(`.${index}`);
-            input.style.border = invalid ? "1px solid red" : "0";
+            input.style.border = "0";
         });
     }
 
