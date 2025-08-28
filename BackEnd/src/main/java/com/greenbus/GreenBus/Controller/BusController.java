@@ -32,7 +32,7 @@ public class BusController {
 
  @GetMapping("/{date}")
  public List<BusesEntity> getBuses(@PathVariable String date) {
-     LocalDate travelDate = LocalDate.parse(date); // expects yyyy-MM-dd
+     LocalDate travelDate = LocalDate.parse(date);
      return busService.getOrCreateBusesByDate(travelDate);
  }
  @PutMapping("/book/{id}")
