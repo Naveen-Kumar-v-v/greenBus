@@ -68,7 +68,12 @@ function ForgotPassword() {
                 })
                     .then(data => data)
                     .catch(err => err)
-                    .finally(setLoading(false))
+                    .finally(() => {
+                        setLoading(false)
+                        setinvalidEmail(false)
+                        setinvalidPassword(false)
+                        setinvalidRePass(false)
+                    })
             } else {
                 setLoading(false)
             }
@@ -102,6 +107,7 @@ function ForgotPassword() {
                     <input type="email" id='emaillogin' value={resetEmail} onChange={
                         (e) => {
                             setresetEmail(e.target.value)
+                            setEmailNotExist(false)
                         }
                     } />
                     {invalidEmail && <p className='invalid mt-2 mb-0'><i class="bi bi-exclamation-circle"></i> Invalid Email</p>}
