@@ -11,6 +11,7 @@
     flex-direction: column;
     justify-content: center;
     transition: 0.1s;
+    background-color: white;
 }
 
 .contact-container p{
