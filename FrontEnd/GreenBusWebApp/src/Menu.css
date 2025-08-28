@@ -1,0 +1,251 @@
+.menu-bg {
+    width: 100%;
+    height: 100%;
+}
+
+.closearea {
+    position: fixed;
+    top: 0;
+    left: -2000px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.menu-container {
+    padding-top: 30px;
+    position: fixed;
+    top: 0;
+    right: -1000px;
+    width: clamp(300px, 100%, 300px);
+    height: 100%;
+    background-color: #f0f0f0;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease-in-out;
+}
+
+.closebtn {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 1.5rem;
+    color: grey;
+    cursor: pointer;
+}
+
+.head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    color: black;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.logindiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 20px;
+}
+
+.logintext {
+    font-weight: 600;
+    color: #4a4949;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.logindiv button {
+    background-color: forestgreen;
+    color: white;
+    border: none;
+    padding: 10px 40px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.logindiv button:hover {
+    background-color: #62b762;
+    transition: 0.3s;
+}
+
+.logindiv p {
+    font-size: 0.9rem;
+    color: #4a4949;
+    margin-top: 10px;
+}
+
+.logindiv p a {
+    color: forestgreen;
+    text-decoration: none;
+}
+
+.logindiv p a:hover {
+    cursor: pointer;
+}
+
+.personaldetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    padding-bottom: 0;
+}
+
+.bodypd {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    width: 95%;
+    gap: 10px;
+    padding-bottom: 0;
+}
+
+.bodypd i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.loggedinuser {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loggedinuser .profilepic {
+    font-size: 70px;
+}
+
+.loggedinuser button {
+    border: none;
+    background-color: crimson;
+    color: white;
+    padding: 5px 20px;
+    margin-top: 14px;
+    border-radius: 50px;
+    font-weight: 600;
+    outline: none;
+}
+
+.loggedinuser button:hover {
+    background-color: rgb(218, 87, 114);
+}
+
+.bookings-menu,
+.personalinfo {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 5px;
+}
+
+.personalinfo {
+    display: flex;
+    align-items: center;
+}
+
+.personalinfo div:nth-child(2) {
+    flex: 1;
+}
+
+.editpencil {
+    display: none;
+    padding: 5px;
+}
+
+.editpencil:hover{
+    color: forestgreen;
+    font-weight: 600;
+}
+
+.bookings-menu:hover,
+.personalinfo:hover {
+    cursor: pointer;
+    background-color: rgb(210, 205, 205);
+}
+
+.details {
+    padding: 10px;
+    width: 95%;
+    margin: auto;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background-color: rgb(210, 205, 205);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: 0.3s ease-in-out;
+}
+
+.details input {
+    border: 0;
+    border-color: red;
+}
+
+.details label {
+    margin-top: 5px;
+}
+
+.personalinforinputs {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.details input:disabled {
+    background-color: rgb(210, 205, 205);
+    padding: 0px;
+    border-radius: 0px;
+    border: 0;
+}
+
+.personalinforinputs:focus{
+    outline: none;
+}
+
+.loginalert {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-weight: 600;
+    color: red;
+    width: 100%;
+    display: none;
+}
+
+.loginalert p {
+    text-align: center;
+}
+.savebtn{
+    display: none;
+    justify-content: end;
+    gap: 10px;
+}
+.savebtn button{
+    border: 0;
+    background-color: forestgreen;
+    color: white;
+    padding: 5px 10px;
+    margin-top: 15px;
+    width: 100px;
+    border-radius: 50px;   
+}
+
+.savebtn button:nth-child(1){
+    background-color: gray;
+}

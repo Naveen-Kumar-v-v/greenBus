@@ -1,0 +1,18 @@
+.contact-container{
+    height: 100px;
+    position: fixed;
+    z-index: 998;
+    top: -100px;
+    right: 50px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.1s;
+}
+
+.contact-container p{
+    margin: 0;
+}

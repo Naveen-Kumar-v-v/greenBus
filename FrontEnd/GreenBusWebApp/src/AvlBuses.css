@@ -1,0 +1,149 @@
+.avlbuses {
+    margin-bottom: 0 !important;
+    margin-right: 20px;
+}
+
+.searchinfo {
+    width: 70%;
+    margin: auto;
+}
+
+.abc1 {
+    display: flex;
+}
+
+.abc2 p {
+    margin: 0;
+    margin-right: 10px;
+}
+
+.bi-arrow-left {
+    margin-left: 10px;
+    margin-right: 15px;
+    font-weight: 600;
+}
+
+.avlbuscontainerhead {
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    padding-bottom: 20PX;
+    justify-content: space-between;
+}
+
+.fromtohead {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.fromtohead p {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    gap: 5px;
+}
+
+.buslistitem {
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.buslistitem:last-child{
+    margin-bottom: 30px;
+}
+.listinfotop {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 0.5px solid rgb(214, 212, 212);
+    padding: 15px;
+}
+
+.listinfotop div {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.detailstext {
+    font-size: 0.7rem;
+    color: grey;
+    margin-top: -20px;
+}
+
+.listinfobottom {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    justify-content: end;
+}
+
+.listinfobottom button {
+    padding: 10px 15px;
+    border: 0;
+    background: forestgreen;
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+.listinfobottom button:hover {
+    background: rgb(128, 192, 128);
+}
+
+.back:hover {
+    cursor: pointer;
+    color: forestgreen;
+}
+@media (max-width: 1100px) {
+    .searchinfo{
+        width: auto;
+    }
+    .avlbuscontainerhead{
+        flex-direction: column;
+        align-items: start;
+    }
+    .abc1{
+        margin-left: 30px;
+        margin-top: 40px;
+    }
+    .abc2 {
+        margin-top: 5px;
+        margin-left: 70px;
+    }
+    .hrline{
+        margin: 0;
+        color: grey;
+        margin-bottom: 15px;
+    }
+}
+@media (max-width: 700px) {
+    .searchinfo{
+        width: auto;
+    }
+    .avlbuscontainerhead{
+        flex-direction: column;
+        align-items: start;
+    }
+    .abc1{
+        margin-left: 30px;
+        margin-top: 25px;
+    }
+    .abc2 {
+        margin-top: 5px;
+        margin-left: 70px;
+    }
+    .hrline{
+        margin: 0;
+        color: grey;
+        margin-bottom: 15px;
+    }
+}

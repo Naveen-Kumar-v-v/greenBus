@@ -1,0 +1,172 @@
+.bookingspage {
+    width: 100%;
+
+}
+
+.notloggedin {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 80px;
+    font-weight: 600;
+    height: 70vh;
+    padding: 20px;
+}
+
+.notloggedin span {
+    color: forestgreen;
+    text-decoration: underline;
+}
+
+.bookingsHomeRedirect {
+    color: forestgreen;
+}
+
+.notloggedin span:hover {
+    cursor: pointer;
+}
+
+.bookingslist {
+    width: 60%;
+    margin: auto;
+}
+
+.mytrips {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: grey;
+    margin-top: 20px;
+}
+
+.bookingslistitem {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 5px;
+    padding: 20px 50px;
+    overflow: hidden;
+}
+
+.bookingslistitem div {
+    display: flex;
+    flex-direction: column;
+}
+
+.bookingslistitem .bookingfromto,
+.boarding,
+.bookingstatus {
+    justify-content: center;
+    align-items: center;
+}
+
+.datetext {
+    font-weight: 700;
+    color: forestgreen;
+}
+
+.bookingstatus p {
+    margin: 0;
+    color: crimson;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.bookingstatus h6 {
+    color: grey;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.iconboard span,
+.iconboard i {
+    color: grey;
+    font-style: normal;
+}
+
+@media (max-width: 1100px) {
+    .bookingslist {
+        width: 80%;
+        margin: auto;
+    }
+    .mytrips {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: grey;
+        margin-top: 60px;
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 700px) {
+    .bookingslist {
+        width: 90%;
+        margin: auto;
+    }
+
+    .mytrips {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: grey;
+        margin-top: 30px;
+        margin-left: 10px;
+    }
+
+
+    .bookingslistitem {
+        display: grid;
+        width: 100%;
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        justify-content: space-between;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border-radius: 5px;
+        padding: 10px 10px;
+        overflow: hidden;
+        grid-template-columns: 1fr 1.9fr;
+        row-gap: 10px;
+    }
+
+    .boarding {
+        justify-content: start;
+        align-items: start;
+        border-top: 1px solid rgb(189, 185, 185);
+        padding-top: 10px;
+    }
+
+    .boarding i {
+        color: white;
+    }
+
+    .boarding span {
+        position: relative;
+        left: -20px;
+    }
+
+    .bookingstatus {
+        border-top: 1px solid rgb(189, 185, 185);
+        padding-top: 10px;
+    }
+
+}
+
+.noBook{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.noBook p{
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 20px;
+    color: forestgreen;
+    font-weight: 600;
+    border-radius: 5px;
+}

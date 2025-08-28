@@ -1,0 +1,96 @@
+.logincontainer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1002;
+    background-color:rgb(128, 128, 128,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginbox{
+    background: white;
+    width: 350px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+}
+.closebtnlogin{
+    text-align: end;
+    font-size: 1.5rem;
+}
+.closebtnlogin:hover{
+    color: forestgreen;
+    cursor: pointer;
+}
+.loginbox h3{
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+}
+.loginbox label{
+    position: relative;
+    text-align: left;
+    left: 14px;
+    bottom: -10px;
+    background-color: white;
+    width: fit-content;
+    padding: 1px;
+}
+.loginbox input{
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+
+.loginbox button{
+    width: 60%;
+    margin: auto;
+    margin-top: 10px;
+    background-color: forestgreen;
+    color: white;
+    border: none;
+    padding: 5px ;
+    border-radius: 50px;
+}
+
+.loginbox p{
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+.loginbox p a {
+    color: forestgreen;
+    text-decoration: none;
+}
+
+.loginbox p a:hover{
+    cursor: pointer;
+}
+.forgot:hover{
+    cursor: pointer;
+}
+.forgot p{
+    margin: 0;
+    margin-top: 5px;
+    text-align: end;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.invalid {
+    color: red;
+    margin-top: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
