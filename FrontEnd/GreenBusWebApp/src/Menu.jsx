@@ -282,14 +282,14 @@ function Menu() {
                     <div className="bodypd">
                         <div className="bookings-menu" onClick={handleBookingsClick}><i class="bi bi-briefcase"></i>My bookings</div>
                         <div className="personalinfo">
-                            <div><i class="bi bi-person-badge" onClick={handlePersonalInfoClick}></i></div>
-                            <div onClick={handlePersonalInfoClick} >Personal information</div>
+                            <div className="personalinfoinner" onClick={handlePersonalInfoClick}>
+                                <div><i class="bi bi-person-badge"></i></div>
+                                <div>Personal information</div>
+                            </div>
                             <div className='editpencildiv'>
-                                <i class="editpencil ms-5 bi bi-pencil" onClick={handleEditPencilCick} ></i>
+                                <i class="editpencil bi bi-pencil" onClick={handleEditPencilCick} ></i>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
                 {usermenuname != null && <div className="personalinfopannel">

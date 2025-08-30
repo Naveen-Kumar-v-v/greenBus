@@ -144,28 +144,41 @@
     background-color: rgb(218, 87, 114);
 }
 
-.bookings-menu,
-.personalinfo {
+.bookings-menu {
     width: 100%;
     padding: 8px 10px;
     border-radius: 5px;
 }
 
 .personalinfo {
+    width: 100%;
     display: flex;
     align-items: center;
 }
 
-.personalinfo div:nth-child(2) {
-    flex: 1;
+.personalinfoinner {
+    padding: 8px 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex: 6;
+}
+
+.editpencildiv {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
 .editpencil {
     display: none;
     padding: 5px;
+    margin-right: 0;
 }
 
-.editpencil:hover{
+.editpencil:hover {
     color: forestgreen;
     font-weight: 600;
 }
@@ -178,6 +191,7 @@
 
 .details {
     padding: 10px;
+    padding-top: 0;
     width: 95%;
     margin: auto;
     margin-top: 0;
@@ -213,7 +227,7 @@
     border: 0;
 }
 
-.personalinforinputs:focus{
+.personalinforinputs:focus {
     outline: none;
 }
 
@@ -231,21 +245,32 @@
 .loginalert p {
     text-align: center;
 }
-.savebtn{
+
+.savebtn {
     display: none;
     justify-content: end;
     gap: 10px;
 }
-.savebtn button{
+
+.savebtn button {
     border: 0;
     background-color: forestgreen;
     color: white;
     padding: 5px 10px;
     margin-top: 15px;
     width: 100px;
-    border-radius: 50px;   
+    border-radius: 50px;
 }
-
-.savebtn button:nth-child(1){
+.savebtn button:hover {
+    background-color: #62b762;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.savebtn button:nth-child(1) {
     background-color: gray;
+}
+.savebtn button:nth-child(1):hover {
+    background-color: darkgray;
+    transition: 0.3s;
+    cursor: pointer;
 }
