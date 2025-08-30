@@ -9,55 +9,163 @@ import MenuMobile from './MenuMobile';
 import Login from './Login';
 import Register from './Register';
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
-import { Dropdown } from 'primereact/dropdown';
 import "primereact/resources/themes/lara-light-blue/theme.css";
 import useUsernameStore from './useUsernameStore';
 import Contact from './Contact';
 import ForgotPassword from './ForgotPassword';
+import { set } from 'date-fns';
 
 
 function Home() {
   const route = useNavigate();
   const location = useLocation();
-  const { from, to, bookingdate } = location.state || {}
   const [Citydd, setCitydd] = useState([]);
-  const [selectedCity, setSelectedCity] = useState();
-  const [selectedCity2, setSelectedCity2] = useState();
   const [TodayDate, setTodayDate] = useState();
 
   const user = useUsernameStore((state) => state.username);
   const userFullName = useUsernameStore((state) => state.userFullName);
   const [loading, setLoading] = useState(false);
 
+  const [search, setSearch] = useState("");
+  const [showOptions, setShowOptions] = useState(false);
+  const [selected, setSelected] = useState("");
+  const [highlightIndex, setHighlightIndex] = useState(-1);
+  const optionRefs = useRef([]);
+
+  const [search2, setSearch2] = useState("");
+  const [showOptions2, setShowOptions2] = useState(false);
+  const [selected2, setSelected2] = useState("");
+  const [highlightIndex2, setHighlightIndex2] = useState(-1);
+  const optionRefs2 = useRef([]);
+
+  const options = Citydd.map(city => city.name);
+
+  const filtered = options.filter((item) =>
+    item.toLowerCase().includes(search.toLowerCase())
+  );
+  const filtered2 = options.filter((item) =>
+    item.toLowerCase().includes(search2.toLowerCase())
+  );
+  useEffect(() => {
+    if (
+      highlightIndex >= 0 &&
+      optionRefs.current[highlightIndex]
+    ) {
+      optionRefs.current[highlightIndex].scrollIntoView({
+        block: "nearest",
+        behavior: "smooth",
+      });
+    }
+  }, [highlightIndex]);
+
+  useEffect(() => {
+    if (
+      highlightIndex2 >= 0 &&
+      optionRefs2.current[highlightIndex2]
+    ) {
+      optionRefs2.current[highlightIndex2].scrollIntoView({
+        block: "nearest",
+        behavior: "smooth",
+      });
+    }
+  }, [highlightIndex2]);
+
+
+  const handleKeyDown = (e) => {
+    if (!showOptions) return;
+
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setHighlightIndex((prev) =>
+        prev < filtered.length - 1 ? prev + 1 : 0
+      );
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setHighlightIndex((prev) =>
+        prev > 0 ? prev - 1 : filtered.length - 1
+      );
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      if (highlightIndex >= 0 && highlightIndex < filtered.length) {
+        setSelected(filtered[highlightIndex]);
+        setSearch("");
+        setShowOptions(false);
+        setHighlightIndex(-1);
+      }
+    } else if (e.key === "Escape") {
+      setShowOptions(false);
+      setHighlightIndex(-1);
+    }
+  };
+  const handleKeyDown2 = (e) => {
+    if (!showOptions2) return;
+
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setHighlightIndex2((prev) =>
+        prev < filtered2.length - 1 ? prev + 1 : 0
+      );
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setHighlightIndex2((prev) =>
+        prev > 0 ? prev - 1 : filtered2.length - 1
+      );
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      if (highlightIndex2 >= 0 && highlightIndex2 < filtered2.length) {
+        setSelected2(filtered2[highlightIndex2]);
+        setSearch2("");
+        setShowOptions2(false);
+        setHighlightIndex2(-1);
+      }
+    } else if (e.key === "Escape") {
+      setShowOptions2(false);
+      setHighlightIndex2(-1);
+    }
+  };
 
   function handlelogoclick() {
     route("/")
   }
   async function handleSearchBus() {
+    console.log(selected, selected2, TodayDate);
+
     setLoading(true)
     setTimeout(async () => {
-      if (selectedCity != null && selectedCity2 != null && TodayDate != null) {
-        let bookdate = TodayDate.toLocaleDateString("en-CA")
-        let buslist = []
+      if (selected && selected2 && TodayDate) {
+        if (selected !== selected2) {
+          let bookdate = TodayDate.toLocaleDateString("en-CA")
+          let buslist = []
 
-        await fetch(`http://10.137.163.137:3030/buses/${bookdate}`)
-          .then(res => res.json())
-          .then(data => {
-            buslist = data
+          await fetch(`http://10.137.163.137:3030/buses/${bookdate}`)
+            .then(res => res.json())
+            .then(data => {
+              buslist = data
+            })
+            .catch(err => err)
+            .finally(
+              setLoading(false)
+            )
+
+          route("/avlbuses", {
+            state: {
+              from: selected,
+              to: selected2,
+              bookingdate: bookdate,
+              buses: buslist
+            }
           })
-          .catch(err => err)
-          .finally(
-            setLoading(false)
-          )
-
-        route("/avlbuses", {
-          state: {
-            from: selectedCity,
-            to: selectedCity2,
-            bookingdate: bookdate,
-            buses: buslist
+        } else {
+          setLoading(false)
+          document.querySelector(".Cityerror").style.display = "block"
+          document.querySelector(".booking").style.height = "150px"
+          if (window.innerWidth <= 1100 && window.innerWidth > 700) {
+            document.querySelector(".booking").style.height = "auto";
           }
-        })
+          if (window.innerWidth <= 700) {
+            document.querySelector(".booking").style.height = "auto";
+          }
+        }
       } else {
         setLoading(false)
         document.querySelector(".fillerror").style.display = "block"
@@ -73,6 +181,8 @@ function Home() {
   }
   function disableError() {
     document.querySelector(".fillerror").style.display = "none"
+    document.querySelector(".Cityerror").style.display = "none"
+
     document.querySelector(".booking").style.height = "110px"
 
     if (window.innerWidth <= 1100 && window.innerWidth > 700) {
@@ -174,32 +284,100 @@ function Home() {
       </div>
       <div className="booking">
         <div className="buslogo  buslogofrom"><i class="bi bi-bus-front-fill ms-3"></i><i class="bi bi-box-arrow-in-left  ms-1"></i></div>
-        <div className="from"><Dropdown value={selectedCity} onChange={(e) => {
-          setSelectedCity(e.value.name)
-          disableError()
-        }}
-          id='homeinputs'
-          options={Citydd} optionLabel="name"
-          editable placeholder="Start your journey from" className="w-full md:w-14rem my-dropdown my-dropdown1" panelClassName="my-dropdown-panel" /></div>
+        <div className="from">
+          <div className="dropdown-container">
+            <input
+              onKeyDown={handleKeyDown}
+              type="text"
+              placeholder="Start your journey from"
+              value={search || selected}
+              onChange={(e) => {
+                setSearch(e.target.value);
+                setSelected("");
+                setShowOptions(true);
+                disableError();
+              }}
+              onClick={() => setShowOptions(!showOptions)}
+              className="dropdown-input"
+            />
+
+            {showOptions && (
+              <ul className="dropdown-list">
+                {filtered.length > 0 ? (
+                  filtered.map((item, i) => (
+                    <li
+                      key={i}
+                      ref={(el) => (optionRefs.current[i] = el)}
+                      onClick={() => {
+                        setSelected(item);
+                        setSearch("");
+                        setShowOptions(false);
+                      }}
+                      className={`dropdown-item ${i === highlightIndex ? "highlighted" : ""}`}
+                    >
+                      {item}
+                    </li>
+                  ))
+                ) : (
+                  <li className="dropdown-item disabled">No options</li>
+                )}
+              </ul>
+            )}
+          </div>
+        </div>
         <div className="buslogo buslogoto"><i class="bi bi-bus-front-fill ms-3"></i><i class="bi bi-box-arrow-in-right ms-1"></i></div>
-        <div className="to"><Dropdown value={selectedCity2} onChange={(e) => {
-          setSelectedCity2(e.value.name)
-          disableError()
-        }}
-          id='homeinputs'
-          options={Citydd} optionLabel="name"
-          editable placeholder="Where you are headed" className="w-full md:w-14rem my-dropdown my-dropdown2" panelClassName="my-dropdown-panel" /></div>
+        <div className="to">
+          <div className="dropdown-container">
+            <input
+              type="text"
+              onKeyDown={handleKeyDown2}
+              placeholder="Where you are headed"
+              value={search2 || selected2}
+              onChange={(e) => {
+                setSearch2(e.target.value);
+                setSelected2("");
+                setShowOptions2(true);
+                disableError();
+              }}
+              onClick={() => setShowOptions2(!showOptions2)}
+              className="dropdown-input"
+            />
+
+            {showOptions2 && (
+              <ul className="dropdown-list">
+                {filtered2.length > 0 ? (
+                  filtered2.map((item, i) => (
+                    <li
+                      key={i}
+                      ref={(el) => (optionRefs2.current[i] = el)}
+                      onClick={() => {
+                        setSelected2(item);
+                        setSearch2("");
+                        setShowOptions2(false);
+                      }}
+                      className={`dropdown-item ${i === highlightIndex2 ? "highlighted" : ""}`}
+                    >
+                      {item}
+                    </li>
+                  ))
+                ) : (
+                  <li className="dropdown-item disabled">No options</li>
+                )}
+              </ul>
+            )}
+          </div>
+        </div>
         <div className="date d-flex align-items-center justify-content-center">
           <div className="calicon">
             <i class="bi bi-calendar4-event ms-3 me-3"></i>
           </div>
           <DatePicker
+            onFocus={(e) => e.target.blur()}
             selected={TodayDate}
             onChange={(date) => {
               handleDateChange(date)
               disableError()
-            }
-            }
+            }}
             id='homeinputs'
             dateFormat="dd/MM/yyyy"
             className="form-control"
@@ -210,6 +388,7 @@ function Home() {
           />
         </div>
         <p className='fillerror'><i class="bi bi-exclamation-circle"></i> Please fill all fields</p>
+        <p className='Cityerror'><i class="bi bi-exclamation-circle"></i> Cities could not be same</p>
       </div>
       <div className="searchbtn">
         <button onClick={handleSearchBus}><i class="bi bi-search me-2" ></i>Search green  Buses</button>
