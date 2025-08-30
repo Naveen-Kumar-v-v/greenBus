@@ -25,3 +25,24 @@ greenBus is a full-stack bus booking platform that enables users to search buses
 - *Database:* MySQL
 - *Payment Gateway:* Razorpay
 - *Tools:* Postman, Git/GitHub, Eclipse IDE, MySQL Workbench, VS code
+
+## greenBus Project Screenshots 
+<img src="/FrontEnd/GreenBusWebApp/images/greenBus_Home.png" alt="App Screenshot" width="49%"/> 
+<img src="FrontEnd/GreenBusWebApp/images/Screenshots/10.137.163.137_5050_ (1).png" alt="App Screenshot" width="49%"/> 
+<img src="FrontEnd/GreenBusWebApp/images/Screenshots/10.137.163.137_5050_ (2).png" alt="App Screenshot" width="49%"/> 
+<img src="FrontEnd/GreenBusWebApp/images/Screenshots/10.137.163.137_5050_ (3).png" alt="App Screenshot" width="49%"/>
+<img src="FrontEnd/GreenBusWebApp/images/Screenshots/10.137.163.137_5050_ (4).png" alt="App Screenshot" width="49%"/> 
+<img src="FrontEnd/GreenBusWebApp/images/Screenshots/10.137.163.137_5050_ (5).png" alt="App Screenshot" width="49%"/>
+<img src="FrontEnd/GreenBusWebApp/images/Screenshots/10.137.163.137_5050_ (6).png" alt="App Screenshot" width="49%"/> 
+<img src="FrontEnd/GreenBusWebApp/images/Screenshots/10.137.163.137_5050_ (7).png" alt="App Screenshot" width="49%"/> 
+<img src="FrontEnd/GreenBusWebApp/images/Screenshots/10.137.163.137_5050_ (8).png" alt="App Screenshot" width="49%"/> 
+<img src="FrontEnd/GreenBusWebApp/images/Screenshots/10.137.163.137_5050_ (9).png" alt="App Screenshot" width="49%"/> 
+<img src="FrontEnd/GreenBusWebApp/images/Screenshots/10.137.163.137_5050_ (10).png" alt="App Screenshot" width="49%"/> 
+<img src="FrontEnd/GreenBusWebApp/images/Screenshots/10.137.163.137_5050_ (11).png" alt="App Screenshot" width="49%"/> 
+<img src="FrontEnd/GreenBusWebApp/images/Screenshots/10.137.163.137_5050_ (12).png" alt="App Screenshot" width="49%"/> 
+<img src="FrontEnd/GreenBusWebApp/images/Screenshots/10.137.163.137_5050_ (13).png" alt="App Screenshot" width="49%"/> 
+<img src="FrontEnd/GreenBusWebApp/images/Screenshots/10.137.163.137_5050_ (14).png" alt="App Screenshot" width="49%"/> 
+<img src="FrontEnd/GreenBusWebApp/images/Screenshots/10.137.163.137_5050_ (15).png" alt="App Screenshot" width="49%"/> 
+<img src="FrontEnd/GreenBusWebApp/images/Screenshots/10.137.163.137_5050_ (16).png" alt="App Screenshot" width="49%"/>
+
+
