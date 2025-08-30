@@ -6,6 +6,8 @@ import Menu from './Menu';
 import MenuMobile from './MenuMobile';
 import Login from './Login';
 import Register from './Register';
+import logo from '../images/logo.png'
+import logotxt from '../images/logotxt.png'
 
 
 function Bookings() {
@@ -54,8 +56,8 @@ function Bookings() {
                 </div>
                 <div className="logo" onClick={handlelogoclick}>
                     <div>
-                        <img src="..\images\logo.png" alt="" />
-                        <img className='textlogo' src="..\images\logotxt.png" alt="" />
+                        <img src={logo} alt="" />
+                        <img className='textlogo' src={logotxt} alt="" />
                     </div>
                 </div>
                 <div className="account-container d-flex align-items-center">

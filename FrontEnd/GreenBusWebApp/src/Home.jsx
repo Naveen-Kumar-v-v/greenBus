@@ -14,6 +14,8 @@ import useUsernameStore from './useUsernameStore';
 import Contact from './Contact';
 import ForgotPassword from './ForgotPassword';
 import { set } from 'date-fns';
+import logo from '../images/logo.png'
+import logotxt from '../images/logotxt.png'
 
 
 function Home() {
@@ -264,8 +266,8 @@ function Home() {
         </div>
         <div className="logo" onClick={handlelogoclick}>
           <div>
-            <img src="..\images\logo.png" alt="" />
-            <img className='textlogo' src="..\images\logotxt.png" alt="" />
+            <img src={logo} alt="" />
+            <img className='textlogo' src={logotxt} alt="" />
           </div>
         </div>
         <div className="menuicon" onClick={openmobilemenu}>
@@ -453,8 +455,8 @@ function Home() {
       </div>
       <footer>
         <div className="footerlogo">
-          <img className='logofooterimg' src="..\images\logo.png" alt="" />
-          <img className='textlogofooter' src="..\images\logotxt.png" alt="" />
+          <img className='logofooterimg' src={logo} alt="" />
+          <img className='textlogofooter' src={logotxt} alt="" />
         </div>
         <div className="descfooter">
           <p>India’s trusted online bus booking platform for safe, reliable, and affordable travel. Book tickets for Delhi, Mumbai, Bangalore, Chennai, and hundreds of other cities with instant confirmation and hassle-free service.</p>

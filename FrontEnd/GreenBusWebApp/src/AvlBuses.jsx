@@ -1,17 +1,18 @@
 import React from 'react'
 import './AvlBuses.css'
-import { useLocation , useNavigate } from "react-router-dom"
-
+import { useLocation, useNavigate } from "react-router-dom"
+import logo from '../images/logo.png'
+import logotxt from '../images/logotxt.png'
 
 
 function AvlBuses() {
   const location = useLocation();
-  const { from, to, bookingdate , buses = []} = location.state || {}
+  const { from, to, bookingdate, buses = [] } = location.state || {}
   const route = useNavigate();
 
   let busesArray = buses;
 
-  function handlelogoclick(){
+  function handlelogoclick() {
     route("/", {
       state: {
         from: from,
@@ -21,16 +22,16 @@ function AvlBuses() {
     })
   }
 
-  function handleViewSeat(selectedBusId){
-     route("/avlbuses/avlseats",{
-        state:{
-          from : from,
-          to : to,
-          bookingdate : bookingdate,
-          selectedBusId : selectedBusId,
-          busList : busesArray
-        }
-      })    
+  function handleViewSeat(selectedBusId) {
+    route("/avlbuses/avlseats", {
+      state: {
+        from: from,
+        to: to,
+        bookingdate: bookingdate,
+        selectedBusId: selectedBusId,
+        busList: busesArray
+      }
+    })
   }
 
   return (
@@ -41,8 +42,8 @@ function AvlBuses() {
         </div>
         <div className="logo" onClick={handlelogoclick}>
           <div>
-            <img src="..\images\logo.png" alt="" />
-            <img className='textlogo' src="..\images\logotxt.png" alt="" />
+            <img src={logo} alt="" />
+            <img className='textlogo' src={logotxt} alt="" />
           </div>
         </div>
         <div className="account-container d-flex align-items-center">
@@ -82,7 +83,7 @@ function AvlBuses() {
               <button onClick={(busId) => handleViewSeat(buses.id)}>View seats</button>
             </div>
           </div>))}
-          
+
         </div>
       </div>
     </div>

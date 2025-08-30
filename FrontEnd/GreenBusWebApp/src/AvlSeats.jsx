@@ -4,6 +4,8 @@ import { useLocation, useNavigate } from "react-router-dom"
 import toast, { Toaster } from 'react-hot-toast';
 import BookingsConfirm from './BookingsConfirm';
 import Login from './Login';
+import logo from '../images/logo.png'
+import logotxt from '../images/logotxt.png'
 
 
 function AvlSeats() {
@@ -212,8 +214,8 @@ function AvlSeats() {
                 </div>
                 <div className="logo" onClick={handlelogoclick}>
                     <div>
-                        <img src="..\images\logo.png" alt="" />
-                        <img className='textlogo' src="..\images\logotxt.png" alt="" />
+                        <img src={logo} alt="" />
+                        <img className='textlogo' src={logotxt} alt="" />
                     </div>
                 </div>
                 <div className="account-container d-flex align-items-center">
