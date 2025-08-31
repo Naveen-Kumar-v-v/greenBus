@@ -6,6 +6,7 @@ import BookingsConfirm from './BookingsConfirm';
 import Login from './Login';
 import logo from '../images/logo.png'
 import logotxt from '../images/logotxt.png'
+import { BASE_URL } from './BaseURL';
 
 
 function AvlSeats() {
@@ -90,7 +91,7 @@ function AvlSeats() {
         }
         blockAlreadyBookedSeats(bookedSeats)
         if (seatCount > 0) {
-            fetch(`http://10.137.163.137:3030/buses/book/${bus.id}`, {
+            fetch(`${BASE_URL}/buses/book/${bus.id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
@@ -113,7 +114,7 @@ function AvlSeats() {
             let totalprice = seatCount * seatPrice
             let seats = selectedSeatArray.toString()
 
-            fetch("http://10.137.163.137:3030/api/bookings", {
+            fetch(`${BASE_URL}/api/bookings`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -138,7 +139,7 @@ function AvlSeats() {
 
         if (seatCount > 0 && user != null) {
             setLoading(true)
-            await fetch(`http://10.137.163.137:3030/api/payments/create-order?amount=${seatCount * seatPrice}&currency=INR`, {
+            await fetch(`${BASE_URL}/api/payments/create-order?amount=${seatCount * seatPrice}&currency=INR`, {
                 method: "POST"
             }).then(res => res.json())
                 .then(order => {
@@ -161,7 +162,7 @@ function AvlSeats() {
                             };
 
                             try {
-                                const res = await fetch("http://10.137.163.137:3030/api/payments/verify", {
+                                const res = await fetch(`${BASE_URL}/api/payments/verify`, {
                                     method: "POST",
                                     headers: {
                                         "Content-Type": "application/json",

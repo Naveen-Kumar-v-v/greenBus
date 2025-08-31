@@ -3,7 +3,7 @@ import './Menu.css'
 import useUsernameStore from './useUsernameStore';
 import toast, { Toaster } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
-
+import { BASE_URL } from './BaseURL';
 
 function Menu() {
 
@@ -184,7 +184,7 @@ function Menu() {
             return
         }
 
-        await fetch(`http://10.137.163.137:3030/updateUser/${usermenuname}`, {
+        await fetch(`${BASE_URL}/updateUser/${usermenuname}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json; charset = UTF-8"
@@ -202,7 +202,7 @@ function Menu() {
             .then(data => data)
             .catch(err => console.log(err))
 
-        fetch(`http://10.137.163.137:3030/api/bookings/updateUsername/${usermenuname}`, {
+        fetch(`${BASE_URL}/api/bookings/updateUsername/${usermenuname}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json; charset = UTF-8"

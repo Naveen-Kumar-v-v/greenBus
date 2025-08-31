@@ -8,6 +8,7 @@ import Login from './Login';
 import Register from './Register';
 import logo from '../images/logo.png'
 import logotxt from '../images/logotxt.png'
+import { BASE_URL } from './BaseURL';
 
 
 function Bookings() {
@@ -19,7 +20,7 @@ function Bookings() {
     useEffect(() => {
         setLoading(true)
         setTimeout(() => {
-            fetch(`http://10.137.163.137:3030/api/bookings/getbookings/${user}`)
+            fetch(`${BASE_URL}/api/bookings/getbookings/${user}`)
                 .then(res => res.json())
                 .then(data => {
                     setboookingslistArray(data)

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Register.css'
 import toast, { Toaster } from 'react-hot-toast';
+import { BASE_URL } from './BaseURL';
 
 function Register() {
 
@@ -94,7 +95,7 @@ function Register() {
         validations()
 
         if (fill) {
-            await fetch("http://10.137.163.137:3030/reg",
+            await fetch(`${BASE_URL}/reg`,
                 {
                     method: "POST",
                     body: JSON.stringify({

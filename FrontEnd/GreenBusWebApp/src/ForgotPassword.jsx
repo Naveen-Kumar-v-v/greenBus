@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import "./ForgotPassword.css"
 import toast, { Toaster } from 'react-hot-toast';
+import { BASE_URL } from './BaseURL';
 
 function ForgotPassword() {
     const [resetEmail, setresetEmail] = useState("")
@@ -52,7 +53,7 @@ function ForgotPassword() {
         validations()
         setTimeout(() => {
             if (!invalidEmail && !invalidPassword && !invalidRePass) {
-                fetch(`http://10.137.163.137:3030/reset-password`, {
+                fetch(`${BASE_URL}/reset-password`, {
                     method: "PUT",
                     body: JSON.stringify({
                         username: resetEmail,

@@ -16,6 +16,7 @@ import ForgotPassword from './ForgotPassword';
 import { set } from 'date-fns';
 import logo from '../images/logo.png'
 import logotxt from '../images/logotxt.png'
+import { BASE_URL } from './BaseURL';
 
 
 function Home() {
@@ -139,7 +140,7 @@ function Home() {
           let bookdate = TodayDate.toLocaleDateString("en-CA")
           let buslist = []
 
-          await fetch(`http://10.137.163.137:3030/buses/${bookdate}`)
+          await fetch(`${BASE_URL}/buses/${bookdate}`)
             .then(res => res.json())
             .then(data => {
               buslist = data
@@ -219,7 +220,7 @@ function Home() {
 
   useEffect(() => {
     setLoading(true)
-    fetch('http://10.137.163.137:3030/cities')
+    fetch(`${BASE_URL}/cities`)
       .then(response =>
         response.json()
       )

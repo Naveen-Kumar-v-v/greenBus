@@ -3,6 +3,7 @@ import './Login.css'
 import toast, { Toaster } from 'react-hot-toast';
 import { data, Outlet, useNavigate } from "react-router-dom";
 import useUsernameStore from './useUsernameStore';
+import { BASE_URL } from './BaseURL';
 
 
 function Login() {
@@ -38,7 +39,7 @@ function Login() {
   });
 
   async function login() {
-    await fetch("http://10.137.163.137:3030/auth/login",
+    await fetch(`${BASE_URL}/auth/login`,
       {
         method: "POST",
         body: JSON.stringify({
@@ -66,7 +67,7 @@ function Login() {
       .catch(err => console.log(err)
       );
 
-    await fetch("http://10.137.163.137:3030/getuser",
+    await fetch(`${BASE_URL}/getuser`,
       {
         method: "GET",
         headers: {
@@ -85,7 +86,7 @@ function Login() {
       .catch(err => console.log(err)
       )
 
-    await fetch(`http://10.137.163.137:3030/getuserdetailsByUsername/${localStorage.getItem("user")}`)
+    await fetch(`${BASE_URL}/getuserdetailsByUsername/${localStorage.getItem("user")}`)
       .then(res => res.json())
       .then(data => {
         if (data != null) {
