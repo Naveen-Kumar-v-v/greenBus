@@ -41,7 +41,6 @@ function Register() {
     const fillfun = () => {
         if (regFullname == "" || regPhonenumber == "" || regEmail == "" || regPassword == "" || regRPassword == "") {
             fill = false
-            setfill2(false)
         }
     }
 
