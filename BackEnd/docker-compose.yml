@@ -1,0 +1,23 @@
+services:
+  greenbus:
+    build:
+      context: "."
+      dockerfile: "Dockerfile"
+    restart: always
+    ports:
+     - "3030:3030"		
+  greenbus-db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: greenbusDocker
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}  		
+    env_file:
+      - .env
+    volumes:
+     - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
