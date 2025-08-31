@@ -41,7 +41,7 @@ function Home() {
   const [highlightIndex2, setHighlightIndex2] = useState(-1);
   const optionRefs2 = useRef([]);
 
-  const options = Citydd.map(city => city.name);
+  const options = ["Delhi","Mumbai","Bangalore","Chennai","Hyderabad","Pune","Kolkata","Ahmedabad","Lucknow","Coimbatore","Jaipur","Indore","Nagpur","Bhopal","Chandigarh","Mysore","Surat","Vadodara","Rajkot","Udaipur","Nashik","Aurangabad","Vijayawada","Visakhapatnam","Tirupati","Madurai","Trichy (Tiruchirappalli)","Salem","Erode","Thrissur","Kochi (Cochin)","Thiruvananthapuram","Calicut (Kozhikode)","Mangalore","Hubli","Belgaum","Goa (Panaji/Margao)","Kanpur","Varanasi","Allahabad (Prayagraj)","Patna","Ranchi","Jamshedpur","Bhubaneswar","Cuttack","Guwahati","Dehradun","Haridwar","Jammu","Srinagar","Amritsar","Ludhiana","Jalandhar","Shimla","Manali","Leh","Agra","Mathura","Meerut","Aligarh","Gorakhpur","Bareilly","Moradabad","Ghaziabad","Noida","Gaya","Muzaffarpur","Darbhanga","Dhanbad","Asansol","Siliguri","Durgapur","Howrah","Rourkela","Puri","Berhampur","Warangal","Khammam","Nellore","Kurnool","Guntur","Anantapur","Eluru","Karimnagar","Nizamabad","Palakkad","Alappuzha","Kottayam","Kannur","Kollam","Davangere","Gadag","Chitradurga","Tumkur","Hassan","Chikmagalur","Bellary"];
 
   const filtered = options.filter((item) =>
     item.toLowerCase().includes(search.toLowerCase())
@@ -218,31 +218,31 @@ function Home() {
     setTodayDate(date);
   };
 
-  useEffect(() => {
-    setLoading(true)
-    fetch(`${BASE_URL}/cities`)
-      .then(response =>
-        response.json()
-      )
-      .then(data => {
-        setCitydd(data)
-        data.map(city => {
+  // useEffect(() => {
+  //   setLoading(true)
+  //   fetch(`${BASE_URL}/cities`)
+  //     .then(response =>
+  //       response.json()
+  //     )
+  //     .then(data => {
+  //       setCitydd(data)
+  //       data.map(city => {
 
-          const option1 = document.createElement('option');
-          option1.value = city.name;
-          option1.textContent = city.name;
-          document.getElementById('city').appendChild(option1);
+  //         const option1 = document.createElement('option');
+  //         option1.value = city.name;
+  //         option1.textContent = city.name;
+  //         document.getElementById('city').appendChild(option1);
 
-          const option2 = document.createElement('option');
-          option2.value = city.name;
-          option2.textContent = city.name;
-          document.getElementById('city2').appendChild(option2);
-        })
-      })
-      .catch(error => console.error('Error fetching cities:', error))
-      .finally(setLoading(false))
+  //         const option2 = document.createElement('option');
+  //         option2.value = city.name;
+  //         option2.textContent = city.name;
+  //         document.getElementById('city2').appendChild(option2);
+  //       })
+  //     })
+  //     .catch(error => console.error('Error fetching cities:', error))
+  //     .finally(setLoading(false))
 
-  }, []);
+  // }, []);
 
   useEffect(() => {
     if (location.state?.doSomething) {
