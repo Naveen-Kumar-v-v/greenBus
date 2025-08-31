@@ -11,7 +11,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-      MYSQL_DATABASE: greenbusDocker
+      MYSQL_DATABASE: greenbus
       MYSQL_USER: ${DB_USERNAME}
       MYSQL_PASSWORD: ${DB_PASSWORD}  		
     env_file:
