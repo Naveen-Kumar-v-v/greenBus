@@ -3,6 +3,9 @@ greenBus is a full-stack bus booking platform that enables users to search buses
 ## Live Demo link (Frontend)
 [greenBus](https://greenbuss.netlify.app/)
 
+## Backend APIs (AWS)
+[API](#backend-apis)
+
 ## Features
 ### User Management
 - *User Registration & Login*
@@ -27,6 +30,33 @@ greenBus is a full-stack bus booking platform that enables users to search buses
 - *Database:* MySQL
 - *Payment Gateway:* Razorpay
 - *Tools:* Postman, Git/GitHub, Eclipse IDE, MySQL Workbench, VS code
+
+## Backend APIs
+
+### User APIs
+
+| Method | Endpoint          | Description             | Request Body | Authorization | Response |
+|--------|-----------------|------------------------|-------------|-------|----------------|
+| POST   | /auth/login      | Login a user           | `{ "username": naveen@gmail.com", "password": 123456" }` | `None` | `{ "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuYXZlZW5AZ21haWwuY29tIiwiaWF0IjoxNzU2NzI3NzcyLCJleHAiOjE3NTY3MzQ5NzJ9.1-D6X2VKizu7l5MQn8RRlstly7I6bShYbBTvKP0ioGA" }` |
+| POST   | /reg   | Register a new user    | `{"username": "naveen@gmail.com","password": "123456","fullname": "Naveenkumar","phonenumber": 8300602615}` | `None` | `{"userID": 1, "fullname": "Naveenkumar", "phonenumber": 8300602615, "username": "naveen1@gmail.com", "password": "$2a$10$rVnWkKCrrtCl3Q5Z9NDine6BNV0kZBOgSd3N2wgD43Vt/GSw2GtZW"}` |
+| GET    | /getuser      | Get user by Token         | `None`        | `Bearer token(from login response)` | `naveen@gmail.com` |
+| PUT | /reset-password | Reset password | `{"username": "naveen@gmail.com","password":"new_password"}` | `None` | `User details` |
+| PUT | updateUser/{username} | Update user profile | `{"username": "naveen@gmail.com","fullname": "Naveenkumar","phonenumber": 8300602615}` | `None` | `User details` |
+| GET | api/bookings/getbookings/{username} | get past bookings of user | `None` | `None` | `Bookings list`
+
+### Bus APIs
+
+| Method | Endpoint          | Description             | Request Body | Response |
+|--------|-----------------|------------------------|-------------|---------|
+| GET    | /buses/{date}    | Get all buses(yyyy-mm-dd)           | None        | `[  {"id": 1,"busName": "Express nova","busType": "AC Sleeper","capacity": 45,"travelDate": "2025-08-12","bookedSeats": "","busTime": "08:00 - 12:50","travelDuration": "4h 50m","perSeatPrice": 1349} ]` |
+| PUT   | /buses/book{bus_id}           | update booked seats             | `{ "bookedSeats": "A1,A2" }` | `Bus details` |
+
+### Payment APIs
+| Method | Endpoint          | Description             | Request Body | Response |
+|--------|-----------------|------------------------|-------------|---------|
+| POST | api/payments/create-order?amount=100&currency=INR | create payment order (need Param (amount,currency)) | `None` | `{"amount": 10000,"amount_paid": 0,"notes": [],"created_at": 1756731677,"amount_due": 10000,"currency": "INR","receipt": "recieptent_5050","id": "order_RCLXXbvkKDtAQk","entity": "order","offer_id": null,"attempts": 0,"status": "created"}`
+| POST | api/payments/verify | Verify payment | `{razorpay_payment_id: response.razorpay_payment_id,razorpay_order_id: response.razorpay_order_id,razorpay_signature: response.razorpay_signature,}` | `Status` |
+
 
 ## greenBus Project Screenshots 
 <img src="/FrontEnd/GreenBusWebApp/images/greenBus_Home.png" alt="App Screenshot" width="49%"/> 
