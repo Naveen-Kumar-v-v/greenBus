@@ -4,7 +4,7 @@ greenBus is a full-stack bus booking platform that enables users to search buses
 [greenBus](https://greenbuss.netlify.app/)
 
 ## Backend APIs (AWS)
-[API](#backend-apis)
+`http://34.225.208.106:3030` [API](#backend-apis)
 
 ## Features
 ### User Management
@@ -31,8 +31,8 @@ greenBus is a full-stack bus booking platform that enables users to search buses
 - *Payment Gateway:* Razorpay
 - *Tools:* Postman, Git/GitHub, Eclipse IDE, MySQL Workbench, VS code
 
-## Backend APIs
-
+## Backend APIs 
+AWS server (http://34.225.208.106:3030)
 ### User APIs
 
 | Method | Endpoint          | Description             | Request Body | Authorization | Response |
