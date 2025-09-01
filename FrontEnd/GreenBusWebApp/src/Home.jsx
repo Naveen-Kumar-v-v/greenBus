@@ -131,8 +131,6 @@ function Home() {
     route("/")
   }
   async function handleSearchBus() {
-    console.log(selected, selected2, TodayDate);
-
     setLoading(true)
     setTimeout(async () => {
       if (selected && selected2 && TodayDate) {
