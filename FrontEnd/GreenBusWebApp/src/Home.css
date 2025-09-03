@@ -106,7 +106,9 @@ nav {
     display: grid;
     grid-template-columns: 60px 2fr 60px 2fr 2fr;
 }
-.fillerror, .Cityerror {
+
+.fillerror,
+.Cityerror {
     grid-column: span 5;
     color: red;
     text-align: center;
@@ -114,6 +116,7 @@ nav {
     margin-top: 10px;
     display: none;
 }
+
 .from,
 .to,
 .date {
@@ -186,60 +189,64 @@ nav {
     outline: none;
     box-shadow: none;
 }
+
 .dropdown-container {
-  position: relative;
-  width: 100%; /* fixed width */
-  height: 100%;
-  font-family: Arial, sans-serif;
+    position: relative;
+    width: 100%;
+    /* fixed width */
+    height: 100%;
+    font-family: Arial, sans-serif;
 }
 
 .dropdown-input {
-  width: 100%;
-  height: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-left: 0;
-  border-right: 0;
-  cursor: pointer;
-  outline: none;
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-left: 0;
+    border-right: 0;
+    cursor: pointer;
+    outline: none;
 }
 
 .dropdown-list {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;         /* same as input */
-  max-height: 200px;   /* fixed height */
-  overflow-y: auto;
-  background: #ffffff;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  margin-top: 4px;
-  padding: 0;
-  list-style: none;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  z-index: 1000;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    /* same as input */
+    max-height: 200px;
+    /* fixed height */
+    overflow-y: auto;
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-top: 4px;
+    padding: 0;
+    list-style: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }
 
 .dropdown-item {
-  padding: 8px 10px;
-  cursor: pointer;
+    padding: 8px 10px;
+    cursor: pointer;
 }
 
 .dropdown-item:hover {
-  background-color: forestgreen;
-  color: white;
+    background-color: forestgreen;
+    color: white;
 }
 
 .dropdown-item.highlighted {
-    background-color:forestgreen;
+    background-color: forestgreen;
     color: white;
 }
 
 .dropdown-item.disabled {
-  color: #aaa;
-  cursor: default;
-  background: #fff;
+    color: #aaa;
+    cursor: default;
+    background: #fff;
 }
 
 .react-datepicker {
@@ -482,6 +489,12 @@ footer {
         order: 4;
     }
 
+     .dropdown-input-to {
+        border-right: 1px solid #ccc;
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
     .booking {
         grid-template-columns: 1fr 8fr 1fr 8fr;
         height: 180px;
@@ -548,7 +561,9 @@ footer {
         height: auto;
         grid-template-columns: 1fr 7fr;
     }
-    .fillerror, .Cityerror {
+
+    .fillerror,
+    .Cityerror {
         grid-column: span 2;
         margin-bottom: 0;
     }
@@ -565,6 +580,12 @@ footer {
         border: 0;
         margin-top: 10px;
         border-radius: 10px;
+    }
+
+    .dropdown-input {
+        border-right: 1px solid #ccc;
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
     }
 
     .from select,

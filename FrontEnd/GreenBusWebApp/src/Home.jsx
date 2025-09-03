@@ -341,7 +341,7 @@ function Home() {
                 disableError();
               }}
               onClick={() => setShowOptions2(!showOptions2)}
-              className="dropdown-input"
+              className="dropdown-input dropdown-input-to"
             />
 
             {showOptions2 && (

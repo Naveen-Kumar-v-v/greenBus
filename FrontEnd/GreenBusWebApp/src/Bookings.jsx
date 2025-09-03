@@ -9,6 +9,7 @@ import Register from './Register';
 import logo from '../images/logo.png'
 import logotxt from '../images/logotxt.png'
 import { BASE_URL } from './BaseURL';
+import ForgotPassword from './ForgotPassword';
 
 
 function Bookings() {
@@ -29,7 +30,7 @@ function Bookings() {
                 .finally(setLoading(false))
         }, 500);
     }, [user])
-
+    
     function handleAccountComponentClick() {
         document.querySelector('.menu-container').style.right = '0px';
         document.querySelector('.closearea').style.left = '0px';
@@ -51,6 +52,7 @@ function Bookings() {
             <MenuMobile />
             <Login />
             <Register />
+            <ForgotPassword />
             <nav className="d-flex justify-content-between align-items-center position-sticky top-0 w-100">
                 <div className="logo-container d-flex align-items-center">
                     <div className="logo ms-5"></div>
