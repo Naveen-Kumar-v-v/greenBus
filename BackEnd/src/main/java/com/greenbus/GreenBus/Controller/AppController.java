@@ -24,7 +24,6 @@ import com.greenbus.GreenBus.Repository.CityRepo;
 import com.greenbus.GreenBus.Repository.UserRepo;
 import com.greenbus.GreenBus.Security.JwtUtil;
 
-@CrossOrigin("*")
 @RestController
 @RequestMapping("/")
 public class AppController {

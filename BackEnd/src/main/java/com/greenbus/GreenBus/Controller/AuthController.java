@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.greenbus.GreenBus.Entity.UserEntity;
 import com.greenbus.GreenBus.Security.JwtUtil;
 
-@CrossOrigin("*")
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
