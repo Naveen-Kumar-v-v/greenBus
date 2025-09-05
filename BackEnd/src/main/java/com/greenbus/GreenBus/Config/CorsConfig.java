@@ -14,6 +14,7 @@ public class CorsConfig {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowedOrigins(List.of("http://10.137.163.137:5050"));
         config.setAllowedOrigins(List.of("https://api.greenbus.run.place"));
+        config.setAllowedOrigins(List.of("https://greenbuss.netlify.app/"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
