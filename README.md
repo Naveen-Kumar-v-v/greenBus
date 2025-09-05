@@ -1,10 +1,10 @@
 # greenBus – Bus Booking System
 greenBus is a full-stack bus booking platform that enables users to search buses, check seat availability, book tickets, and make secure payments via Razorpay. It includes user authentication (login/register), profile management, and booking history to view past reservations. Built using Spring Boot (backend), React (frontend), and MySQL (database).
 ## Live Demo link
-[greenBus](https://greenbuss.netlify.app/)
+`https://greenbuss.netlify.app` [greenBus](https://greenbuss.netlify.app/)
 
 ## Backend APIs (AWS)
-`http://34.225.208.106:3030` [API](#backend-apis)
+`https://api.greenbus.run.place` [API](#backend-apis)
 
 ## Features
 ### User Management
@@ -32,7 +32,7 @@ greenBus is a full-stack bus booking platform that enables users to search buses
 - *Tools:* Postman, Git/GitHub, Eclipse IDE, MySQL Workbench, VS code
 
 ## Backend APIs 
-AWS server (http://34.225.208.106:3030)
+AWS server https://api.greenbus.run.place
 ### User APIs
 
 | Method | Endpoint          | Description             | Request Body | Authorization | Response |
