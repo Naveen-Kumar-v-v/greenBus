@@ -162,6 +162,7 @@ function AvlSeats() {
                             };
 
                             try {
+                                setLoading(true)
                                 const res = await fetch(`${BASE_URL}/api/payments/verify`, {
                                     method: "POST",
                                     headers: {
@@ -181,6 +182,8 @@ function AvlSeats() {
                             } catch (err) {
                                 console.error("Error verifying payment", err);
                                 console.log("Something went wrong!");
+                            } finally {
+                                setLoading(false)
                             }
                         },
                         "prefill": {

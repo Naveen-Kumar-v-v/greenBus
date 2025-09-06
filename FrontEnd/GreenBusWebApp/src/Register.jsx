@@ -14,8 +14,9 @@ function Register() {
     const [invalidEmail, setinvalidEmail] = useState(false)
     const [invalidPhonenumber, setinvalidPhonenumber] = useState(false)
     const [invalidName, setInvalidName] = useState(false)
-    const [invalidPassword,setInvalidPassword] = useState(false)
-    const [invalidRePass,setinvalidRePass] = useState(false)
+    const [invalidPassword, setInvalidPassword] = useState(false)
+    const [invalidRePass, setinvalidRePass] = useState(false)
+    const [loading, setLoading] = useState(false);
     let fill = true
 
     function closereg() {
@@ -79,10 +80,10 @@ function Register() {
             setInvalidPassword(false);
         }
 
-        if(regPassword != regRPassword){
+        if (regPassword != regRPassword) {
             setinvalidRePass(true)
             fill = false;
-        }else{
+        } else {
             setinvalidRePass(false)
         }
 
@@ -90,6 +91,7 @@ function Register() {
 
 
     async function register() {
+        setLoading(true)
         fillfun()
         validations()
 
@@ -113,7 +115,7 @@ function Register() {
                 })
                 .then(data => data)
                 .catch(err => console.log(err))
-
+                .finally(() => setLoading(false))
             if (!alreadyExist) {
                 setregEmail("")
                 setregFullname("")
@@ -169,6 +171,12 @@ function Register() {
                     </div>
                 </div>
             </div>
+            {loading && (
+                <div className="loading-overlay">
+                    <div className="spinner"></div>
+                    <p>Please wait...</p>
+                </div>
+            )}
         </div>
     )
 }

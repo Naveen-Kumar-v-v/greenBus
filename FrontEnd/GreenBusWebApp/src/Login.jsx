@@ -8,11 +8,12 @@ import { BASE_URL } from './BaseURL';
 
 function Login() {
 
-  const { user, setUsername ,clearUsername , userFullName, setUserFullName ,userPhone ,setUserPhone} = useUsernameStore();
+  const { user, setUsername, clearUsername, userFullName, setUserFullName, userPhone, setUserPhone } = useUsernameStore();
   const route = useNavigate();
   const [inpEmail, setinpEmail] = useState("");
   const [inpPassword, setinpPassword] = useState("");
   const [Invalid, setInvalid] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   let tokenvar = ""
 
@@ -25,8 +26,8 @@ function Login() {
     document.querySelector('.menu-container').style.right = '-1000px';
   }
 
-  function handleForgotPassword(){
-        document.querySelector('.forgotcontainer').style.display = 'flex'
+  function handleForgotPassword() {
+    document.querySelector('.forgotcontainer').style.display = 'flex'
   }
 
   const notify = () => toast(`Login Successful !`, {
@@ -39,6 +40,7 @@ function Login() {
   });
 
   async function login() {
+    setLoading(true);
     await fetch(`${BASE_URL}/auth/login`,
       {
         method: "POST",
@@ -65,7 +67,8 @@ function Login() {
         }
       })
       .catch(err => console.log(err)
-      );
+      )
+      .finally(() => setLoading(false))
 
     await fetch(`${BASE_URL}/getuser`,
       {
@@ -97,11 +100,16 @@ function Login() {
         }
       })
       .catch(err => console.log(err))
-
   }
 
   return (
     <div>
+      {loading && (
+        <div className="loading-overlay">
+          <div className="spinner"></div>
+          <p>Please wait...</p>
+        </div>
+      )}
       <Toaster />
       <div className="logincontainer" >
         {<div className="loginbox">

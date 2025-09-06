@@ -30,7 +30,7 @@ function Bookings() {
                 .finally(setLoading(false))
         }, 500);
     }, [user])
-    
+
     function handleAccountComponentClick() {
         document.querySelector('.menu-container').style.right = '0px';
         document.querySelector('.closearea').style.left = '0px';
@@ -53,6 +53,12 @@ function Bookings() {
             <Login />
             <Register />
             <ForgotPassword />
+            {loading && (
+                <div className="loading-overlay">
+                    <div className="spinner"></div>
+                    <p>Please wait...</p>
+                </div>
+            )}
             <nav className="d-flex justify-content-between align-items-center position-sticky top-0 w-100">
                 <div className="logo-container d-flex align-items-center">
                     <div className="logo ms-5"></div>
@@ -76,7 +82,7 @@ function Bookings() {
                     } >Login or register now.</span></p>
                     <p>or go to <a href="/" className='bookingsHomeRedirect'>Home</a></p>
                 </div>}
-                {user != null && <div className="bookingslist">
+                {user != null && !loading &&  <div className="bookingslist">
                     <p className='mytrips'>My trips</p>
                     {boookingslistArray.map(bookings => (<div className="bookingslistitem">
                         <div className="bookingdate">
@@ -107,16 +113,11 @@ function Bookings() {
                         </div>
                     </div>))}
                 </div>}
-                {boookingslistArray.length < 1  && !loading && <div className='noBook'>
+                {boookingslistArray.length < 1 && !loading && <div className='noBook'>
                     <p>No trips. Book now !</p>
                 </div>}
             </div>
-            {loading && (
-                <div className="loading-overlay">
-                    <div className="spinner"></div>
-                    <p>Please wait...</p>
-                </div>
-            )}
+
 
         </div>
     )

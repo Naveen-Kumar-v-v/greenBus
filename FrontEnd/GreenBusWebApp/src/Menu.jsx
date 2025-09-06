@@ -16,6 +16,7 @@ function Menu() {
     const usermenuFname = useUsernameStore((state) => state.userFullName);
     const usermenuPhone = useUsernameStore((state) => state.userPhone);
 
+    const [loading, setLoading] = useState(false);
     const [loggedin, setloggedin] = useState(false);
     const [editName, seteditName] = useState(usermenuFname)
     const [editMail, seteditMail] = useState(usermenuname)
@@ -159,7 +160,7 @@ function Menu() {
     }
 
     async function handleSaveEdit() {
-
+        setLoading(true);
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
         if (!regex.test(editMail)) {
             document.querySelector(".mailedit").style.border = "1px solid red"
@@ -221,7 +222,7 @@ function Menu() {
         setUserFullName(editName)
         setUserPhone(editPhone)
         setUsername(editMail)
-
+        setLoading(false)
         const inputs = document.querySelectorAll(".personalinforinputs")
         inputs.forEach(element => {
             element.disabled = true;
@@ -261,6 +262,7 @@ function Menu() {
 
     }
     return (
+        
         <div className='menu-bg w-100 h-100'>
             <div className="closearea" onClick={handleCloseMenu}></div>
             <div className="menu-container right-0">
@@ -315,6 +317,12 @@ function Menu() {
                     <p><i class="bi bi-exclamation-circle"></i> Login to to your details</p>
                 </div>}
             </div>
+            {loading && (
+                <div className="loading-overlay">
+                    <div className="spinner"></div>
+                    <p>Please wait...</p>
+                </div>
+            )}
         </div>
     )
 }
